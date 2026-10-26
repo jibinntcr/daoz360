@@ -59,18 +59,65 @@ export default function App() {
 
     // Scroll to top
     window.scrollTo({ top: 0, behavior: 'instant' });
-
-    // Update document title
-    if (validRoute === 'privacy-policy') {
-      document.title = 'Privacy Policy | DAOZ360';
-    } else if (validRoute === 'terms-conditions') {
-      document.title = 'Terms & Conditions | DAOZ360';
-    } else if (validRoute === 'contact') {
-      document.title = 'Contact Us | DAOZ360';
-    } else {
-      document.title = 'DAOZ360 | Social Media Management';
-    }
   }, []);
+
+  // Synchronize document title, canonical URL, and meta tags with current route
+  useEffect(() => {
+    const metaConfig = {
+      home: {
+        title: 'DAOZ360 | Social Media Management Platform',
+        description: 'Bring your social media workflow together with DAOZ360. Plan, publish, and grow your social presence across all networks.',
+        url: 'https://daoz360.ai/'
+      },
+      'privacy-policy': {
+        title: 'Privacy Policy | DAOZ360',
+        description: 'Read the official DAOZ360 Privacy Policy. Understand our data practices, safeguards, and compliance with applicable data protection laws.',
+        url: 'https://daoz360.ai/privacy-policy/'
+      },
+      'terms-conditions': {
+        title: 'Terms & Conditions | DAOZ360',
+        description: 'Review the official terms and conditions for using the DAOZ360 social media management platform.',
+        url: 'https://daoz360.ai/terms-conditions/'
+      },
+      contact: {
+        title: 'Contact Us | DAOZ360',
+        description: 'Contact DAOZ360 for product enquiries, technical support, privacy questions, and billing assistance.',
+        url: 'https://daoz360.ai/contact/'
+      }
+    };
+
+    const activeMeta = metaConfig[currentRoute] || metaConfig.home;
+    document.title = activeMeta.title;
+
+    // Update canonical link
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonical);
+    }
+    canonical.setAttribute('href', activeMeta.url);
+
+    // Update description
+    const descMeta = document.querySelector('meta[name="description"]');
+    if (descMeta) descMeta.setAttribute('content', activeMeta.description);
+
+    // Update Open Graph tags
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle) ogTitle.setAttribute('content', activeMeta.title);
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute('content', activeMeta.url);
+    const ogDesc = document.querySelector('meta[property="og:description"]');
+    if (ogDesc) ogDesc.setAttribute('content', activeMeta.description);
+
+    // Update Twitter tags
+    const twTitle = document.querySelector('meta[name="twitter:title"]');
+    if (twTitle) twTitle.setAttribute('content', activeMeta.title);
+    const twDesc = document.querySelector('meta[name="twitter:description"]');
+    if (twDesc) twDesc.setAttribute('content', activeMeta.description);
+    const twUrl = document.querySelector('meta[name="twitter:url"]');
+    if (twUrl) twUrl.setAttribute('content', activeMeta.url);
+  }, [currentRoute]);
 
   // Listen to browser back/forward buttons & hash changes
   useEffect(() => {
