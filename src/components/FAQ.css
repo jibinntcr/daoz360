@@ -1,0 +1,130 @@
+.faq-section {
+  border-top: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.faq-accordion-group {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-disclosure {
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid var(--color-divider);
+  border-radius: var(--radius-lg);
+  transition: all var(--transition-normal);
+}
+
+@media (max-width: 600px) {
+  .faq-disclosure {
+    border-radius: var(--radius-md);
+  }
+}
+
+.faq-disclosure[open] {
+  border-color: #D4D4D8;
+  box-shadow: var(--shadow-md);
+}
+
+.faq-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 28px;
+  min-height: 56px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  user-select: none;
+  transition: color var(--transition-fast);
+}
+
+@media (max-width: 600px) {
+  .faq-summary {
+    padding: 16px 16px;
+    font-size: 1rem;
+    min-height: 50px;
+  }
+}
+
+.faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-summary:hover {
+  color: var(--color-brand-orange);
+}
+
+.faq-question-text {
+  flex: 1;
+  padding-right: 14px;
+  line-height: 1.35;
+}
+
+.faq-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-surface-soft);
+  transition: transform var(--transition-normal), background-color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.faq-chevron {
+  color: var(--color-ink-muted);
+  transition: transform var(--transition-normal);
+}
+
+.faq-disclosure[open] .faq-icon-wrapper {
+  background: var(--color-surface-tint);
+}
+
+.faq-disclosure[open] .faq-chevron {
+  transform: rotate(180deg);
+  color: var(--color-brand-orange);
+}
+
+.faq-answer-content {
+  padding: 0 28px 24px 28px;
+  border-top: 1px solid transparent;
+  animation: fadeIn 200ms ease;
+}
+
+@media (max-width: 600px) {
+  .faq-answer-content {
+    padding: 0 16px 18px 16px;
+  }
+}
+
+.faq-disclosure[open] .faq-answer-content {
+  border-top-color: var(--color-divider-subtle);
+  padding-top: 16px;
+}
+
+.faq-answer-content p {
+  color: var(--color-ink-muted);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,776 @@
+/* ==========================================================================
+   DAOZ360 — Automated Website Chat Assistant Styling
+   Desktop & Mobile Optimized Layout per Section 12 Brief
+   ========================================================================== */
+
+/* Floating Launcher Button */
+.daoz-chat-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 990;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px 10px 12px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #FF6A00 0%, #FF5A00 100%);
+  color: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 24px rgba(255, 90, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  min-height: 48px;
+}
+
+.daoz-chat-launcher:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(255, 90, 0, 0.45), 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.daoz-chat-launcher:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.daoz-launcher-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.daoz-launcher-emblem {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.daoz-launcher-text {
+  font-weight: 700;
+  color: #171717;
+  white-space: nowrap;
+}
+
+/* Chat Window Panel */
+.daoz-chat-window {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  z-index: 995;
+  width: 384px;
+  max-width: calc(100vw - 32px);
+  height: 600px;
+  max-height: calc(100vh - 110px);
+  background: #141419;
+  border: 1px solid var(--color-border-subtle, #2A2A36);
+  border-radius: 16px;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: daozChatEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes daozChatEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Chat Header */
+.daoz-chat-header {
+  padding: 14px 18px;
+  background: #191922;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.daoz-chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.daoz-chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.daoz-chat-avatar-img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.daoz-chat-name {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.daoz-chat-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.75rem;
+  color: var(--color-brand-orange, #FF5A00);
+  font-weight: 500;
+}
+
+.daoz-chat-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+.daoz-chat-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.daoz-chat-icon-btn {
+  background: transparent;
+  border: none;
+  color: #A1A1AA;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.daoz-chat-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+}
+
+/* Pre-Chat Form Container */
+.daoz-prechat-container {
+  padding: 24px 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+}
+
+.daoz-prechat-intro {
+  margin-bottom: 4px;
+}
+
+.daoz-prechat-heading {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 6px 0;
+}
+
+.daoz-prechat-subtext {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #A1A1AA;
+  margin: 0;
+}
+
+.daoz-prechat-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.daoz-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.daoz-field-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #E4E4E7;
+}
+
+.daoz-req {
+  color: var(--color-brand-orange, #FF5A00);
+}
+
+.daoz-input {
+  width: 100%;
+  background: #1B1B24;
+  border: 1px solid #2C2C3A;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 1rem; /* 16px prevents iOS zoom */
+  color: #FFFFFF;
+  font-family: inherit;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease;
+}
+
+.daoz-input:focus {
+  outline: none;
+  border-color: var(--color-brand-orange, #FF5A00);
+  box-shadow: 0 0 0 2px rgba(255, 90, 0, 0.15);
+}
+
+.daoz-input.is-invalid {
+  border-color: #EF4444;
+}
+
+.daoz-field-error {
+  font-size: 0.75rem;
+  color: #EF4444;
+}
+
+.daoz-privacy-notice {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #71717A;
+}
+
+.daoz-privacy-link {
+  color: var(--color-brand-orange, #FF5A00);
+  text-decoration: underline;
+}
+
+.daoz-start-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 12px 18px;
+  min-height: 44px;
+  margin-top: 6px;
+}
+
+.daoz-form-alert {
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #F87171;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+/* Conversation Container */
+.daoz-conversation-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.daoz-messages-feed {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Message Rows & Bubbles */
+.daoz-msg-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  max-width: 90%;
+}
+
+.daoz-msg-row.is-assistant {
+  align-self: flex-start;
+}
+
+.daoz-msg-row.is-user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.daoz-msg-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.daoz-msg-content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.daoz-chat-window p {
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  max-width: none;
+}
+
+.daoz-msg-bubble {
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  box-sizing: border-box;
+}
+
+.daoz-msg-row.is-assistant .daoz-msg-bubble {
+  background: #1E1E28;
+  color: #F7F7F5;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-left-radius: 4px;
+}
+
+.daoz-msg-row.is-user .daoz-msg-bubble {
+  background: #FF5A00;
+  color: #171717;
+  font-weight: 600;
+  border-top-right-radius: 4px;
+}
+
+.daoz-msg-text {
+  color: #F7F7F5 !important;
+  margin: 0;
+  word-break: break-word;
+}
+
+.daoz-msg-row.is-user .daoz-msg-text {
+  color: #171717 !important;
+  font-weight: 600;
+}
+
+.daoz-msg-time {
+  font-size: 0.7rem;
+  color: #71717A;
+  padding: 0 4px;
+}
+
+.daoz-msg-row.is-user .daoz-msg-time {
+  text-align: right;
+}
+
+/* Topic Chips & Interactive Quick Replies */
+.daoz-topic-chips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.daoz-chip-btn {
+  background: #252532;
+  border: 1px solid #363646;
+  border-radius: 20px;
+  color: #F7F7F5;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.daoz-chip-btn:hover {
+  background: rgba(255, 90, 0, 0.15);
+  border-color: var(--color-brand-orange, #FF5A00);
+  color: #FFFFFF;
+}
+
+.daoz-chip-contact {
+  color: var(--color-brand-orange, #FF5A00);
+  border-color: rgba(255, 90, 0, 0.35);
+}
+
+/* Action Links */
+.daoz-action-links-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.daoz-action-link-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #252532;
+  border: 1px solid #363646;
+  color: #FFFFFF;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.daoz-action-link-btn:hover {
+  border-color: var(--color-brand-orange, #FF5A00);
+  background: rgba(255, 90, 0, 0.1);
+}
+
+/* Follow-up Request Preview Card */
+.daoz-preview-card {
+  margin-top: 10px;
+  background: #16161E;
+  border: 1px solid rgba(255, 90, 0, 0.25);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.daoz-preview-header {
+  padding: 8px 12px;
+  background: rgba(255, 90, 0, 0.08);
+  border-bottom: 1px solid rgba(255, 90, 0, 0.15);
+}
+
+.daoz-preview-badge {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--color-brand-orange, #FF5A00);
+}
+
+.daoz-preview-body {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.daoz-preview-row {
+  display: flex;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  gap: 6px;
+}
+
+.daoz-preview-lbl {
+  color: #71717A;
+  font-weight: 600;
+  min-width: 68px;
+}
+
+.daoz-preview-val {
+  color: #E4E4E7;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.daoz-preview-footer {
+  padding: 10px 12px;
+  background: #14141A;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.daoz-submit-request-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  min-height: 38px;
+}
+
+/* Confirmation Card */
+.daoz-confirm-card {
+  margin-top: 10px;
+  background: rgba(16, 185, 129, 0.06);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.daoz-confirm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #10B981;
+}
+
+.daoz-confirm-ref-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #181822;
+  border: 1px solid #2B2B38;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.daoz-confirm-ref-label {
+  font-size: 0.75rem;
+  color: #71717A;
+  font-weight: 600;
+}
+
+.daoz-confirm-ref-code {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.daoz-copy-ref-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #A1A1AA;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.daoz-copy-ref-btn:hover {
+  color: #FFFFFF;
+}
+
+.daoz-confirm-text {
+  font-size: 0.82rem;
+  color: #E4E4E7;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Feedback Prompt */
+.daoz-feedback-prompt {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.daoz-feedback-text {
+  font-size: 0.78rem;
+  color: #A1A1AA;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.daoz-feedback-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.daoz-feedback-btn {
+  background: #252532;
+  border: 1px solid #363646;
+  border-radius: 14px;
+  color: #F7F7F5;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.daoz-feedback-btn:hover {
+  background: rgba(255, 90, 0, 0.15);
+  border-color: var(--color-brand-orange, #FF5A00);
+  color: #FFFFFF;
+}
+
+/* Free-text Input Bar */
+.daoz-chat-input-bar {
+  padding: 12px 14px;
+  background: #191922;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.daoz-chat-input {
+  flex: 1;
+  background: #141419;
+  border: 1px solid #2B2B38;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 1rem; /* 16px avoids iOS zoom */
+  color: #FFFFFF;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.daoz-chat-input:focus {
+  outline: none;
+  border-color: var(--color-brand-orange, #FF5A00);
+}
+
+.daoz-chat-send-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: var(--color-brand-orange, #FF5A00);
+  color: #171717;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+  flex-shrink: 0;
+}
+
+.daoz-chat-send-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* End Chat Overlay */
+.daoz-chat-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.daoz-chat-confirm-box {
+  background: #181824;
+  border: 1px solid #303040;
+  border-radius: 12px;
+  padding: 22px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.daoz-confirm-title {
+  font-family: var(--font-heading, 'Manrope', sans-serif);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 8px 0;
+}
+
+.daoz-confirm-desc {
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #A1A1AA;
+  margin: 0 0 18px 0;
+}
+
+.daoz-confirm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.daoz-confirm-btn-danger {
+  background: #EF4444;
+  color: #FFFFFF;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.daoz-confirm-btn-cancel {
+  background: #252532;
+  color: #E4E4E7;
+  border: 1px solid #363646;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+/* Hide launcher button when chat window is active to avoid overlap */
+.daoz-chat-launcher.is-active {
+  display: none;
+}
+
+.daoz-prechat-subtext {
+  color: #E4E4E7 !important;
+}
+
+.daoz-confirm-text {
+  color: #FFFFFF !important;
+}
+
+.daoz-preview-val {
+  color: #FFFFFF !important;
+}
+
+/* ==========================================================================
+   Mobile Optimization
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .daoz-chat-launcher {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    right: 16px;
+    padding: 8px 14px 8px 10px;
+    font-size: 0.85rem;
+  }
+
+  .daoz-chat-window {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100vw;
+    max-width: 100vw;
+    height: calc(100dvh - 24px);
+    max-height: calc(100dvh - 24px);
+    border-radius: 18px 18px 0 0;
+    border-bottom: none;
+  }
+
+  .daoz-chat-input-bar {
+    padding-bottom: max(14px, env(safe-area-inset-bottom, 14px));
+  }
+}
