@@ -5,9 +5,21 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://daoz360.ai/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://daoz360.ai/pricing/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
+    <loc>https://daoz360.ai/contact/</loc>
+    <lastmod>2026-11-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://daoz360.ai/privacy-policy/</loc>
@@ -20,11 +32,5 @@
     <lastmod>2026-10-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://daoz360.ai/contact/</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
   </url>
 </urlset>
